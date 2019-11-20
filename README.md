@@ -17,14 +17,14 @@ E.g: `2`
 Player 1 knows the full state of all the coins.  
 E.g. `(Head, Head, Tail)`
 
-Player 0's objective is to get the coins into a configuration where they are all "heads-up" while Player 1's objective is getting all coins into a "tails-up" configuartion.  
+Player 0's objective is to get the coins into a configuration where they are all "heads-up" while Player 1's objective is getting all coins into a "tails-up" configuration.  
 **Spoof is a two-player zero-sum game**, therefore, a win for Player 0 is equvillant to a loss for Player 1
 
 E.g. `(Head, Head, Head)` *Player 0 wins* & *Player 1 loses*  
 E.g. `(Tail, Tail, Tail)` *Player 1 wins* & *Player 0 loses*
 
 # How to play
-1. Player 1 chooses a configuaration of the 3 coins, consisting of 2 heads and 1 tail.  
+1. Player 1 chooses a configuration of the 3 coins, consisting of 2 heads and 1 tail.  
 E.g. `(Head, Tail, Head)`
 2. Player 0 chooses 1 coin in the set, without knowing whether it's heads or tails, and asks Player 1 to toggle that coin.  
 E.g. Player 0 chooses to toggle the first coin:  
