@@ -1,0 +1,7 @@
+README.md
+setup.py
+gym_spoof.egg-info/PKG-INFO
+gym_spoof.egg-info/SOURCES.txt
+gym_spoof.egg-info/dependency_links.txt
+gym_spoof.egg-info/requires.txt
+gym_spoof.egg-info/top_level.txt
