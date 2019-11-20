@@ -18,7 +18,7 @@ Player 1 knows the full state of all the coins.
 E.g. `(Head, Head, Tail)`
 
 Player 0's objective is to get the coins into a configuration where they are all "heads-up" while Player 1's objective is getting all coins into a "tails-up" configuration.  
-**Spoof is a two-player zero-sum game**, therefore, a win for Player 0 is equvillant to a loss for Player 1
+**Spoof is a two-player zero-sum game**, therefore, a win for Player 0 is equivalent to a loss for Player 1
 
 E.g. `(Head, Head, Head)` *Player 0 wins* & *Player 1 loses*  
 E.g. `(Tail, Tail, Tail)` *Player 1 wins* & *Player 0 loses*
