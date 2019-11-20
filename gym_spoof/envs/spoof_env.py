@@ -1,13 +1,14 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
+import gym_spoof.utils.categorical_space as categorical_space
 import numpy as np
 import random
+
 
 class SpoofEnv(gym.Env):
   metadata = {'render.modes': ['human']}
 
-  
 
   def __init__(self):
     self.coin_count = 3
@@ -25,7 +26,7 @@ class SpoofEnv(gym.Env):
 
     self.action_space = spaces.Tuple(
       (
-        spaces.MultiBinary(self.coin_count),
+        categorical_space.Categorical(self.coin_count),
         spaces.Discrete(2)
       )
     )
@@ -57,27 +58,23 @@ class SpoofEnv(gym.Env):
         self.coin_state[swap1] = self.coin_state[swap2]
         self.coin_state[swap2] = temp
 
-    reward = 0
+    reward = (0, 0)
     done = False
     if self.allHeads():
       done = True
-      if self.player_0_turn:
-        reward = 1
-      else:
-        reward = -1
+      reward = (1, -1)
     if self.allTails():
       done = True
-      if self.player_0_turn:
-        reward = -1
-      else:
-        reward = 1
+      reward = (-1, 1)
 
     self.player_0_turn = not self.player_0_turn
     return self.getObservations(), reward, done, {'next_turn': 0 if self.player_0_turn else 1}
 
-  def reset(self):
-    self.coin_state = [True, True, False]
-    random.shuffle(self.coin_state)
+  def reset(self, initial_state=[True, True, False], shuffle_initial=False):
+    if shuffle_initial:
+      random.shuffle(initial_state)
+    assert np.count_nonzero(initial_state) == 2
+    self.coin_state = initial_state
     return self.getObservations()
 
   def render(self, mode='human'):
@@ -87,3 +84,4 @@ class SpoofEnv(gym.Env):
       else:
         print('T', end='')
     print()
+
